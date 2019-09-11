@@ -1,0 +1,8 @@
+CREATE TABLE developers
+(
+  id         INT         NOT NULL AUTO_INCREMENT,
+  name       VARCHAR(50) NOT NULL,
+  speciality VARCHAR(50) NOT NULL,
+  salary     INT         NOT NULL,
+  PRIMARY KEY (id)
+);
