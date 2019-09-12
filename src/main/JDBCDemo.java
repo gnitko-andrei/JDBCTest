@@ -2,6 +2,8 @@ package main;
 
 import java.sql.*;
 
+import static main.DemoUtill.printResultSet;
+
 public class JDBCDemo {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testDB";
@@ -29,20 +31,7 @@ public class JDBCDemo {
 
         ResultSet resultSet = statement.executeQuery(sql);
 
-        System.out.println("Retrieving data from database...");
-        System.out.println("\nDevelopers:");
-        while (resultSet.next()){
-            int id = resultSet.getInt("id");
-            String name = resultSet.getString("name");
-            String speciality = resultSet.getString("speciality");
-            int salary = resultSet.getInt("salary");
-
-            System.out.println("id: " + id);
-            System.out.println("name: " + name);
-            System.out.println("speciality: " + speciality);
-            System.out.println("salary: " + salary);
-            System.out.println("\n======================================================\n");
-        }
+        printResultSet(resultSet);
 
         System.out.println("Closing connection and releasing resources...");
         resultSet.close();
@@ -50,4 +39,5 @@ public class JDBCDemo {
         connection.close();
 
     }
+
 }
