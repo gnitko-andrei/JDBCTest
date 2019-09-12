@@ -23,6 +23,21 @@ public class PreparedStatementDemo {
         ResultSet resultSet = preparedStatement.executeQuery(SQL);
         printResultSet(resultSet);
 
+        SQL = "UPDATE developers SET salary = ? WHERE speciality = ?";
+        System.out.println("Creating statement...");
+        System.out.println("Executing SQL query...");
+
+        preparedStatement = connection.prepareStatement(SQL);
+        preparedStatement.setInt(1, 5000);
+        preparedStatement.setString(2, "java");
+
+        System.out.println("Rows impacted: " + preparedStatement.executeUpdate());
+
+        System.out.println("Final developers table content:");
+        SQL = "SELECT * FROM developers";
+        resultSet = preparedStatement.executeQuery(SQL);
+        printResultSet(resultSet);
+
         System.out.println("Closing connection and releasing resources...");
         resultSet.close();
         preparedStatement.close();
