@@ -2,7 +2,7 @@ package main;
 
 import java.sql.*;
 
-class JDBCDemo {
+public class JDBCDemo {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testDB";
 
